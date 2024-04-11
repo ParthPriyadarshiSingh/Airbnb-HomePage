@@ -5,9 +5,8 @@ import {
   ListRenderItem,
   TouchableOpacity,
   StyleSheet,
-  Image,
 } from "react-native";
-import React, { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import Animated, { FadeInRight, FadeOutLeft } from "react-native-reanimated";
 import { defaultStyles } from "@/constants/Styles";
 import { Link } from "expo-router";
@@ -15,7 +14,7 @@ import { Listing } from "@/interfaces/listing";
 import { Ionicons } from "@expo/vector-icons";
 
 interface Props {
-  listings: any[];
+  listings: Listing[];
   category: string;
 }
 
@@ -23,7 +22,8 @@ const Listings = ({ listings: items, category }: Props) => {
   const listRef = useRef<FlatList>(null);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
-    setLoading(true); //these are just to simulate loading scenario
+    //this are just to simulate loading scenario
+    setLoading(true);
     setTimeout(() => {
       setLoading(false);
     }, 200);

@@ -1,4 +1,3 @@
-import React, { memo } from "react";
 import MapView from "react-native-map-clustering";
 import { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 import { StyleSheet, View, Text } from "react-native";
