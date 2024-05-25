@@ -1,6 +1,7 @@
 import MapView from "react-native-map-clustering";
 import { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 import { StyleSheet, View, Text } from "react-native";
+import { memo } from "react";
 import { defaultStyles } from "@/constants/Styles";
 import { ListingGeo } from "@/interfaces/listingGeo";
 import { useRouter } from "expo-router";
@@ -16,7 +17,7 @@ const INITIAL_REGION = {
   longitudeDelta: 0.0421,
 };
 
-const ListingsMap = ({ listings }: Props) => {
+const ListingsMap = memo(({ listings }: Props) => {
   const router = useRouter();
 
   const onMarkerSelected = (item: ListingGeo) => {
@@ -56,9 +57,9 @@ const ListingsMap = ({ listings }: Props) => {
       <MapView
         animationEnabled={false}
         style={StyleSheet.absoluteFillObject}
-        provider={PROVIDER_GOOGLE}
+        // provider={PROVIDER_GOOGLE}
         showsUserLocation
-        showsMyLocationButton
+        // showsMyLocationButton
         initialRegion={INITIAL_REGION}
         clusterColor="#fff"
         clusterTextColor="black"
@@ -82,7 +83,7 @@ const ListingsMap = ({ listings }: Props) => {
       </MapView>
     </View>
   );
-};
+});
 
 const styles = StyleSheet.create({
   container: {

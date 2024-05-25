@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   Share,
 } from "react-native";
-import React, { useLayoutEffect } from "react";
+import { useLayoutEffect } from "react";
 import Animated, {
   SlideInDown,
   interpolate,
@@ -41,7 +41,7 @@ const Page = () => {
         url: listing.listing_url,
       });
     } catch (err) {
-      console.log(err);
+      console.log("share Listing error:", err);
     }
   };
 

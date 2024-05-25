@@ -11,21 +11,21 @@ import { Ionicons } from "@expo/vector-icons";
 import { useOAuth } from "@clerk/clerk-expo";
 import { useRouter } from "expo-router";
 
-enum Strategy {
-  Google = "oauth_google",
-}
+// enum Strategy {
+//   Google = "oauth_google",
+// }
 
 const Page = () => {
   const router = useRouter();
-  const { startOAuthFlow: googleAuth } = useOAuth({ strategy: "oauth_google" });
+  const { startOAuthFlow } = useOAuth({ strategy: "oauth_google" });
 
-  const onSelectAuth = async (strategy: Strategy) => {
-    const selectedAuth = {
-      [Strategy.Google]: googleAuth,
-    }[strategy];
+  const onSelectAuth = async () => {
+    // const selectedAuth = {
+    //   [Strategy.Google]: googleAuth,
+    // }[strategy];
 
     try {
-      const { createdSessionId, setActive } = await selectedAuth();
+      const { createdSessionId, setActive } = await startOAuthFlow();
       console.log(createdSessionId);
 
       if (createdSessionId) {
@@ -75,7 +75,7 @@ const Page = () => {
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.btnOutline}
-          onPress={() => onSelectAuth(Strategy.Google)}
+          onPress={() => onSelectAuth()}
         >
           <Ionicons
             name="logo-google"
