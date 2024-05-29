@@ -95,7 +95,7 @@ You can run the app on your physical device using the Expo Go app.
 
 ### Notes
 
-- **Login Page:** The login functionality is not working currently, but you can skip the login page to access the rest of the app.
+- **Login Page:** The login functionality only works with google for now, not email.
 
 ## Troubleshooting
 
